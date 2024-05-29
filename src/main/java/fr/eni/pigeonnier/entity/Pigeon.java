@@ -20,18 +20,6 @@ public class Pigeon {
 	private String proprio = "Sandra L.";
 	private String code;
 
-	public Pigeon(String nom, String proprio, String code) {
-		super();
-		this.nom = nom;
-		this.proprio = proprio;
-		this.code = code;
-	}
-
-	public Pigeon(String nom, String proprio) {
-		super();
-		this.nom = nom;
-		this.proprio = proprio;
-	}
 
 	public Pigeon(String nom) {
 		super();

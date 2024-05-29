@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Accueil</title>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			/*background: url('/img/pigeon.jpg') no-repeat center center fixed;*/
+			background-size: cover;
+			color: #333;
+			margin: 0;
+			padding: 0;
+		}
+		h1, h2 {
+			text-align: center;
+			color: #003366;
+		}
+		.container {
+			background-color: rgba(255, 255, 255, 0.8);
+			border-radius: 10px;
+			padding: 20px;
+			max-width: 600px;
+			margin: 50px auto;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		}
+		a {
+			display: inline-block;
+			padding: 10px 20px;
+			margin: 10px;
+			color: #fff;
+			background-color: #003366;
+			text-decoration: none;
+			border-radius: 5px;
+		}
+		a:hover {
+			background-color: #00509e;
+		}
+		.user-info {
+			display: flex;
+			justify-content: space-between;
+			padding: 10px;
+			background-color: #f4f4f4;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<p data-th-text="${#ctx.session.currentUser != null} ? ${#ctx.session.currentUser} : 'Non connecté!'"></p>
+	<h1>Accueil</h1>
+	<h2>Bienvenue au Pigeonnier de Sandra</h2>
+	<a data-th-href="@{/pigeon}">Liste des pigeons</a>
+	<a data-th-href="@{/pigeon/add}">Ajouter un pigeon</a>
+	<a data-th-href="@{/pigeon/catch}">Capturer des pigeons</a>
+	<a data-th-href="@{/login}">Login</a>
+	<a data-th-href="@{/logout}">Logout</a>
+	<div data-th-each="utilisateur : ${utilisateurs}" class="user-info">
+		<span data-th-text="${utilisateur.prenom}"></span>
+		<span data-th-text="${utilisateur.nom}"></span>
+		<span data-th-text="${utilisateur.roles}"></span>
+	</div>
+</div>
+</body>
+</html>

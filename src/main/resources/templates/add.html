@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Mon pigeonnier</title>
+    <title>Ajouter un pigeon</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -97,7 +97,7 @@
 <!--<div class="background-image"></div>-->
 <h1>Mon pigeonnier</h1>
 
-<form th:action="@{/pigeon}" th:object="${pigeon}" method="post">
+<form th:action="@{/pigeon/add}" th:object="${pigeon}" method="post">
     <input type="text" th:field="*{nom}" placeholder="Nom"/>
     <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
     <button type="submit">Ajouter</button>

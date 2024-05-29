@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pigeon")
+@RequestMapping("/pigeons")
 public class PigeonWS {
     @Autowired
     private PigeonService service;

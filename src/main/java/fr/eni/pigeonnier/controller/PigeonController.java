@@ -15,26 +15,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 
-// http://localhost:8080/pigeonnier
+// http://localhost:8080
 @Controller
-@RequestMapping("/pigeon")
+@RequestMapping
 public class PigeonController {
     @Autowired
     PigeonService pigeonService;
 
-    @GetMapping
+    @GetMapping("/")
+    public String showAccueil() {
+        return "accueil";
+    }
+
+    @GetMapping("/pigeon")
     public String showList(Model model) {
         model.addAttribute("lstPigeons", pigeonService.getAllPigeons());
         return "pigeon";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/pigeon/add")
     public String add(@ModelAttribute("pigeon") Pigeon pigeon) {
         return "add";
     }
 
 
-    @PostMapping("/add")
+    @PostMapping("/pigeon/add")
     public String valid(@Valid @ModelAttribute("pigeon") Pigeon pigeon, BindingResult errors) {
         if(errors.hasErrors()) {
             return "pigeon";
@@ -44,12 +49,12 @@ public class PigeonController {
         return "redirect:/pigeon";
     }
 
-    @GetMapping("/catch")
+    @GetMapping("/pigeon/catch")
     public String capture(@ModelAttribute("target") Target target) {
         return "catch";
     }
 
-    @PostMapping("/catch")
+    @PostMapping("/pigeon/catch")
     public String capture(@Valid @ModelAttribute("target") Target target, BindingResult errors, RestTemplate restTemplate) {
         if(errors.hasErrors()) {
             return "catch";

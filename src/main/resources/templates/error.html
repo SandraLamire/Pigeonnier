@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Erreur</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f8f9fa;
+			color: #343a40;
+			text-align: center;
+			padding: 50px;
+		}
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		h1 {
+			color: #dc3545;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1 class="cards" data-th-text="Erreur + ${status}"></h1>
+	<a data-th-href="@{/}" >Retour à l'accueil</a>
+</div>
+
+</body>
+</html>
